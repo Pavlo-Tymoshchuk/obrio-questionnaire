@@ -1,7 +1,7 @@
-import fs from "fs"
-import path from "path"
+import fs from 'fs'
+import path from 'path'
 
-import { SurveyQuestion } from "@/dto/surveyQuestion.type";
+import { SurveyQuestion } from '@/dto/surveyQuestion.type'
 
 interface SurveyConfig {
     questions: Record<string, SurveyQuestion>
@@ -11,13 +11,13 @@ interface SurveyConfig {
 const surveys: Record<string, SurveyConfig> = {}
 
 // Отримання всіх опитувальників із конфігу
-const configDir = path.join(process.cwd(), "./src/config")
-const surveyFiles = fs.readdirSync(configDir).filter((file) => file.endsWith(".json"))
+const configDir = path.join(process.cwd(), './src/config')
+const surveyFiles = fs.readdirSync(configDir).filter((file) => file.endsWith('.json'))
 
 surveyFiles.forEach((file) => {
-    const surveyId = file.replace(".json", "")
+    const surveyId = file.replace('.json', '')
     const filePath = path.join(configDir, file)
-    const fileContents = fs.readFileSync(filePath, "utf-8")
+    const fileContents = fs.readFileSync(filePath, 'utf-8')
     surveys[surveyId] = JSON.parse(fileContents)
 })
 

@@ -1,10 +1,12 @@
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { getSurveyConfig, getAllSurveyIds } from '@/utils/getSurveyConfig'
+
+import ChoiceQuestion from '@/components/ChoiceQuestion'
 
 export function generateStaticParams() {
     const surveyIds = getAllSurveyIds()
 
-    return surveyIds.flatMap((surveyId) => {
+    return surveyIds.map((surveyId) => {
         const surveyConfig = getSurveyConfig(surveyId)
         if (!surveyConfig) return []
 
@@ -15,7 +17,11 @@ export function generateStaticParams() {
     })
 }
 
-export default function QuestionPage({ params }: { params: { surveyId: string; id: string } }) {
+interface QuestionPageProps {
+    params: { surveyId: string; id: string }
+}
+
+export default function QuestionPage({ params }: QuestionPageProps) {
     const surveyConfig = getSurveyConfig(params.surveyId)
 
     if (!surveyConfig) return notFound()
@@ -23,9 +29,5 @@ export default function QuestionPage({ params }: { params: { surveyId: string; i
 
     if (!question) return notFound()
 
-    return (
-        <>
-            <h2>{question.text}</h2>
-        </>
-    )
+    return <ChoiceQuestion question={question} surveyId={params.surveyId} />
 }
