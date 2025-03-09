@@ -1,7 +1,7 @@
 export interface SurveyOption {
     label: string
     value: string
-    nextQuestionId: string | null,
+    nextQuestionId: string | null
     replaceValue?: string
 }
 
@@ -9,7 +9,7 @@ export interface SurveyOption {
 export interface SurveyQuestion {
     id: string
     text: string
-    screenType: 'choice'
-    options: SurveyOption[],
+    screenType: 'choice' | 'accept-next'
+    options: SurveyOption[]
     prevQuestionId: string | null
 }

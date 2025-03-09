@@ -2,10 +2,11 @@
 
 import { SurveyOption, SurveyQuestion } from '@/dto/surveyQuestion.type'
 
-import { useHandleAnswer } from './hooks/useHandleAnswer'
-import { usePrepareTitle } from './hooks/usePrepareTitle'
+import classes from './styles/choiceQuestion.module.scss'
 
-import { Button } from '@/app/ui/Button'
+import { usePrepareTitle } from '@/hooks/usePrepareTitle'
+
+import { ChoiceQuestionItem } from './ChoiceQuestionItem'
 
 interface ChoiceQuestionProps {
     question: SurveyQuestion
@@ -13,17 +14,24 @@ interface ChoiceQuestionProps {
 }
 
 export function ChoiceQuestion({ question, surveyId }: ChoiceQuestionProps) {
-    const handleAnswer = useHandleAnswer({ questionId: question.id, surveyId })
     const prepareText = usePrepareTitle({ title: question.text, surveyId })
 
     return (
         <>
-            <h1 className='h1-style'>{prepareText}</h1>
-            {question.options.map((option: SurveyOption) => (
-                <button key={option.value} onClick={() => handleAnswer(option)}>
-                    {option.label}
-                </button>
-            ))}
+            <h1 className="h1-style">{prepareText}</h1>
+            {question.options?.length ? (
+                <ul className={classes['choice-list']}>
+                    {question.options.map((option: SurveyOption) => (
+                        <ChoiceQuestionItem
+                            key={`choice-${option.value}`}
+                            questionId={question.id}
+                            questionTitle={prepareText}
+                            surveyId={surveyId}
+                            option={option}
+                        />
+                    ))}
+                </ul>
+            ) : null}
         </>
     )
 }

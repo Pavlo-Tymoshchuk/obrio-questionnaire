@@ -15,7 +15,7 @@ interface ButtonProps {
 export function Button({ onClick, type, children, btnType = 'button', disabled }: ButtonProps) {
     return (
         <button type={btnType} onClick={onClick} disabled={disabled} className={classNames(classes['button'], classes[`button-${type}`])}>
-            {children}
+            <span className={classes['inner-children']}>{children}</span>
         </button>
     )
 }

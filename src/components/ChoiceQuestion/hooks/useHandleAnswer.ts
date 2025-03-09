@@ -7,10 +7,11 @@ import { SurveyOption } from '@/dto/surveyQuestion.type'
 
 interface HandleAnswerProps {
     questionId: string
-    surveyId: string
+    surveyId: string,
+    questionTitle: string
 }
 
-export const useHandleAnswer = ({ questionId, surveyId }: HandleAnswerProps) => {
+export const useHandleAnswer = ({ questionId, surveyId, questionTitle }: HandleAnswerProps) => {
     const dispatch = useAppDispatch()
     const router = useRouter()
 
@@ -21,6 +22,8 @@ export const useHandleAnswer = ({ questionId, surveyId }: HandleAnswerProps) => 
                 answerData: {
                     value: answerData.value,
                     replaceValue: answerData.replaceValue,
+                    title: answerData.label,
+                    questionTitle
                 },
                 surveyId,
             })
@@ -29,7 +32,7 @@ export const useHandleAnswer = ({ questionId, surveyId }: HandleAnswerProps) => 
         if (answerData.nextQuestionId) {
             router.push(`/${surveyId}/${answerData.nextQuestionId}`)
         } else {
-            router.push('/results')
+            router.push(`/${surveyId}/results`)
         }
     }
 }

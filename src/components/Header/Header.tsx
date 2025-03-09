@@ -18,7 +18,6 @@ export function Header({ prevQuestionId, surveyId }: InnerProps) {
                     <Image src="/chevron.svg" alt="chevron" width={24} height={24} priority />
                 </button>
             ) : null}
-
             <Image src="/logo.svg" alt="obrio logo" width={16} height={16} priority />
         </header>
     )

@@ -1,13 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface AnswerData {
-    value: string,
-    replaceValue?: string
-}
+import { AnswerData, SurveyState } from '@/dto/surveyStore.type'
 
-interface SurveyState {
-    answers: Record<string, Record<string, AnswerData>>
-}
 
 const loadFromLocalStorage = (key: string) => {
     if (typeof window !== 'undefined') {

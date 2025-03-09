@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import { Providers } from '@/store'
-import classNames from 'classnames'
 
 import '../styles/global.scss'
 
@@ -23,12 +22,8 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="en">
-            <body className={classNames(openSans.variable, 'body')}>
-                <Providers>
-                    <section className='container'>{children}</section>
-                </Providers>
-            </body>
+        <html lang="en" className={openSans.variable}>
+            <Providers>{children}</Providers>
         </html>
     )
 }

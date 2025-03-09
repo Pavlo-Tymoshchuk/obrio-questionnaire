@@ -56,7 +56,13 @@ textarea {
     line-height: 1.4;
     color: $color-text-600;
     margin: 0;
+    min-height: 100vh;
     background-color: $color-bg-body;
+
+    &.accept-next {
+        color: $color-text-100;
+        background: $color-bg-accent;
+    }
 }
 
 .container {

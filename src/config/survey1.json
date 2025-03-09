@@ -25,7 +25,7 @@
         "text": "Are you a single parent?",
         "screenType": "choice",
         "options": [
-          { "label": "Yes", "value": "yes", "replaceValue": "who have children", "nextQuestionId": "q4" },
+          { "label": "Yes", "value": "yes", "replaceValue": "who has children", "nextQuestionId": "q4" },
           { "label": "No", "value": "no", "replaceValue": "", "nextQuestionId": "q4" }
         ],
         "prevQuestionId": "q2"
@@ -43,13 +43,60 @@
       },
       "q5": {
         "id": "q5",
-        "text": "What is your favorite season?",
+        "text": "Do you tend to overthink?",
         "screenType": "choice",
         "options": [
-          { "label": "Summer", "value": "summer", "nextQuestionId": null },
-          { "label": "Winter", "value": "winter", "nextQuestionId": null },
-          { "label": "Spring", "value": "spring", "nextQuestionId": null }
-        ]
+          { "label": "Yes", "value": "yes", "nextQuestionId": "q6" },
+          { "label": "No", "value": "no", "nextQuestionId": "q6" }
+        ],
+        "prevQuestionId": "q4"
+      },
+      "q6": {
+        "id": "q6",
+        "text": "So how does it work?",
+        "subText": "We analyze hundreds of data points to create your unique astrological blueprint. This is combined with AI to tailor-make your astrological insights, based on your answers. We’re going to change your relationship with astrology.",
+        "screenType": "accept-next",
+        "variansNext": {
+          "yes": "q7",
+          "no": "q8"
+        },
+        "prevQuestionId": "q5"
+      },
+      "q7": {
+        "id": "q7",
+        "text": "What is most important to you?",
+        "screenType": "choice",
+        "options": [
+          { "label": "Success", "value": "success", "nextQuestionId": "q9" },
+          { "label": "Romance", "value": "romance", "nextQuestionId": "q9" },
+          { "label": "Stability", "value": "stability", "nextQuestionId": "q9" },
+          { "label": "Freedom", "value": "freedom", "nextQuestionId": "q9" }
+        ],
+        "prevQuestionId": "q6"
+      },
+      "q8": {
+        "id": "q8",
+        "text": "Is emotional control tricky for you?",
+        "screenType": "choice",
+        "options": [
+          { "label": "Success", "value": "success", "nextQuestionId": "q9" },
+          { "label": "Sometimes", "value": "sometimes", "nextQuestionId": "q9" },
+          { "label": "Rarely", "value": "rarely", "nextQuestionId": "q9" },
+          { "label": "Not at all", "value": "not-at-all", "nextQuestionId": "q9" }
+        ],
+        "prevQuestionId": "q6"
+      },
+      "q9": {
+        "id": "q9",
+        "text": "Where did you hear about us?",
+        "screenType": "choice",
+        "options": [
+          { "label": "Poster or Billboard", "value": "poster-or-billboard", "nextQuestionId": null },
+          { "label": "Friend or Family", "value": "friend-or-family", "nextQuestionId": null },
+          { "label": "Instagram", "value": "instagram", "nextQuestionId": null },
+          { "label": "Radio", "value": "radio", "nextQuestionId": null }
+        ],
+        "prevQuestionId": "q6"
       }
     }
   }

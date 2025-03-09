@@ -1,0 +1,45 @@
+@use '../../../styles/variables' as *;
+
+.button {
+    position: relative;
+    width: 100%;
+    padding: 21px 20px;
+    border: 1px solid $color-border-100;
+    overflow: hidden;
+    border-radius: 16px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, .02);
+        transition: opacity .2s;
+    }
+
+    @media (hover:hover) {
+        &:hover {
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.inner-children {
+    position: relative;
+    z-index: 2;
+}
+
+.button-primary {
+    background-color: $color-bg-primary;
+}
+
+.button-accent {
+    color: $color-text-100;
+    background: $color-bg-accent;
+    box-shadow: $color-shadow-100;
+}
