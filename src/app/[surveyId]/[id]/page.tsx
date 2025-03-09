@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation'
 import { getSurveyConfig, getAllSurveyIds } from '@/utils/getSurveyConfig'
 
-import ChoiceQuestion from '@/components/ChoiceQuestion'
+import { SurveyScreen } from './SurveyScreen'
+import { Header } from '@/components/Header'
 
 export function generateStaticParams() {
     const surveyIds = getAllSurveyIds()
@@ -21,13 +22,22 @@ interface QuestionPageProps {
     params: { surveyId: string; id: string }
 }
 
-export default function QuestionPage({ params }: QuestionPageProps) {
-    const surveyConfig = getSurveyConfig(params.surveyId)
+export default async function QuestionPage({ params }: QuestionPageProps) {
+    const { surveyId, id } = await params
+
+    const surveyConfig = getSurveyConfig(surveyId)
 
     if (!surveyConfig) return notFound()
-    const question = surveyConfig.questions[params.id]
+    const question = surveyConfig.questions[id]
 
     if (!question) return notFound()
 
-    return <ChoiceQuestion question={question} surveyId={params.surveyId} />
+    return (
+        <>
+            <Header prevQuestionId={question.prevQuestionId} surveyId={surveyId} />
+            <main className='main-wrapper'>
+                <SurveyScreen question={question} surveyId={surveyId} />
+            </main>
+        </>
+    )
 }

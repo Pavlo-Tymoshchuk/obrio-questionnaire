@@ -1,7 +1,8 @@
 export interface SurveyOption {
     label: string
     value: string
-    nextQuestionId: string | null
+    nextQuestionId: string | null,
+    replaceValue?: string
 }
 
 // Інтерфейс для одного питання
@@ -9,5 +10,6 @@ export interface SurveyQuestion {
     id: string
     text: string
     screenType: 'choice'
-    options: SurveyOption[]
+    options: SurveyOption[],
+    prevQuestionId: string | null
 }

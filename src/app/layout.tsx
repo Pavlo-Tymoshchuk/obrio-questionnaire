@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
-
 import { Providers } from '@/store'
+import classNames from 'classnames'
+
+import '../styles/global.scss'
 
 const openSans = Open_Sans({
     weight: ['400', '700'],
@@ -22,9 +24,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={openSans.variable}>
+            <body className={classNames(openSans.variable, 'body')}>
                 <Providers>
-                    <main>{children}</main>
+                    <section className='container'>{children}</section>
                 </Providers>
             </body>
         </html>

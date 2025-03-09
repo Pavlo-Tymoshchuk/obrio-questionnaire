@@ -1,0 +1,77 @@
+@use './variables' as *;
+
+* {
+    box-sizing: border-box;
+
+    &::after,
+    &::before {
+        box-sizing: border-box;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    border-style: none;
+    vertical-align: top;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+button {
+    font-family: inherit;
+    outline: none;
+    border: none;
+    background: none;
+    user-select: none;
+    padding: 0px;
+    cursor: pointer;
+    line-height: inherit;
+}
+
+textarea {
+    font-family: inherit;
+}
+
+.body {
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    line-height: 1.4;
+    color: $color-text-600;
+    margin: 0;
+    background-color: $color-bg-body;
+}
+
+.container {
+    max-width: 1212px;
+    padding: 0px 15px;
+    margin: 0px auto;
+}
+
+.h1-style {
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0px 0px 30px 0px;
+}
+
+.main-wrapper {
+    max-width: 300px;
+    margin: 0px auto;
+}
