@@ -3,9 +3,7 @@ import { Header } from '@/components/Header'
 import { PageWrap } from '@/components/PageWrap'
 
 interface ResultsPageProps {
-    params: {
-        surveyId: string
-    }
+    params: Promise<{ surveyId: string }>
 }
 
 export default async function ResultsPage({ params }: ResultsPageProps) {

@@ -20,11 +20,11 @@ export function generateStaticParams() {
 }
 
 interface QuestionPageProps {
-    params: { surveyId: string; id: string }
+    params: Promise<{ surveyId: string; id: string }>
 }
 
-export default function QuestionPage({ params }: QuestionPageProps) {
-    const { surveyId, id } = params
+export default async function QuestionPage({ params }: QuestionPageProps) {
+    const { surveyId, id } = await params
 
     const surveyConfig = getSurveyConfig(surveyId)
 
@@ -37,7 +37,7 @@ export default function QuestionPage({ params }: QuestionPageProps) {
         <PageWrap className={question.screenType}>
             <Header prevQuestionId={question.prevQuestionId} surveyId={surveyId} isWhite={question.screenType === 'accept-next'} />
             <main className="main-wrapper">
-                <SurveyScreen question={question} surveyId={surveyId}  />
+                <SurveyScreen question={question} surveyId={surveyId} />
             </main>
         </PageWrap>
     )
