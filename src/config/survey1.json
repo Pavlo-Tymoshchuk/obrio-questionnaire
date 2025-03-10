@@ -16,7 +16,7 @@
         "screenType": "choice",
         "options": [
           { "label": "Single", "value": "single", "nextQuestionId": "q3" },
-          { "label": "In a relationship", "value": "in-a-relationship", "nextQuestionId": null}
+          { "label": "In a relationship", "value": "in-a-relationship", "nextQuestionId": "q10"}
         ],
         "prevQuestionId": "q1"
       },
@@ -97,7 +97,71 @@
           { "label": "Radio", "value": "radio", "nextQuestionId": null }
         ],
         "prevQuestionId": "q6"
+      },
+      "q10": {
+        "id": "q10",
+        "text": "Are you a parent?",
+        "screenType": "choice",
+        "options": [
+          { "label": "Yes", "value": "yes", "replaceValue": "who has children", "nextQuestionId": "q11" },
+          { "label": "No", "value": "no", "replaceValue": "", "nextQuestionId": "q11" }
+        ],
+        "prevQuestionId": "q2"
+      },
+      "q11": {
+        "id": "q11",
+        "text": "Single {q1} {q10} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?",
+        "screenType": "choice",
+        "options": [
+          { "label": "I was unhappy with low things were going in my relationship", "value": "very-was-unhappy", "nextQuestionId": "q12" },
+          { "label": "I was unhappy with parts of my relationship, but some thing were working", "value": "unhappy-was-with-parts", "nextQuestionId": "q12" },
+          { "label": "I was generally happy with my relationship", "value": "was-generally-happy", "nextQuestionId": "q12" },
+          { "label": "I’ve never been in a relationship", "value": "never-been-relationship", "nextQuestionId": "q12" }
+        ],
+        "prevQuestionId": "q10"
+      },
+      "q12": {
+        "id": "q12",
+        "text": "Is your partner an introvert or extrovert?",
+        "screenType": "choice",
+        "options": [
+          { "label": "Introvert", "value": "introvert", "nextQuestionId": "q13" },
+          { "label": "Extrovert", "value": "extrovert", "nextQuestionId": "q13" },
+          { "label": "A bit of both", "value": "both", "nextQuestionId": "q13" }
+        ],
+        "prevQuestionId": "q11"
+      },
+      "q13": {
+        "id": "q13",
+        "text": "What is your partner’s gender?",
+        "screenType": "choice",
+        "options": [
+          { "label": "Female", "value": "female", "nextQuestionId": "q14" },
+          { "label": "Male", "value": "male", "nextQuestionId": "q14" }
+        ],
+        "prevQuestionId": "q12"
+      },
+      "q14": {
+        "id": "q13",
+        "text": "Do you agree with the statement below?",
+        "subText": "“My partner and I make sex a priority in our relationship”",
+        "screenType": "choice",
+        "options": [
+          { "label": "Strongly agree", "value": "strongly-agree", "nextQuestionId": "q15" },
+          { "label": "Disagee", "value": "disagee", "nextQuestionId": "q15" }
+        ],
+        "prevQuestionId": "q13"
+      },
+      "q15": {
+        "id": "q15",
+        "text": "When you think about your relationship goals, you feel...?",
+        "screenType": "choice",
+        "options": [
+          { "label": "Optimistic! They are totally doable, with some guidance.", "value": "optimistic", "nextQuestionId":null},
+          { "label": "Cautious. I’ve struggled before, but I’m hopeful", "value": "cautious", "nextQuestionId": null },
+          { "label": "I’m feeling a little anxious, honestly.", "value": "honestly", "nextQuestionId": null }
+        ],
+        "prevQuestionId": "q14"
       }
     }
   }
-  
