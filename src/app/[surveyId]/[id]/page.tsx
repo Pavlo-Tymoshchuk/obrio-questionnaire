@@ -8,7 +8,7 @@ import { PageWrap } from '@/components/PageWrap'
 export function generateStaticParams() {
     const surveyIds = getAllSurveyIds()
 
-    return surveyIds.map((surveyId) => {
+    return surveyIds.flatMap((surveyId) => {
         const surveyConfig = getSurveyConfig(surveyId)
         if (!surveyConfig) return []
 
@@ -23,8 +23,8 @@ interface QuestionPageProps {
     params: { surveyId: string; id: string }
 }
 
-export default async function QuestionPage({ params }: QuestionPageProps) {
-    const { surveyId, id } = await params
+export default function QuestionPage({ params }: QuestionPageProps) {
+    const { surveyId, id } = params
 
     const surveyConfig = getSurveyConfig(surveyId)
 
