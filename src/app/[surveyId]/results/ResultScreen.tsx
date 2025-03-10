@@ -1,8 +1,14 @@
 'use client'
 
+import { useEffect } from 'react'
+
 import { useAppSelector } from '@/store/Store'
 
 import classes from './styles/results.module.scss'
+
+import { clearLocalStorage } from '@/helpers/localStorage'
+
+import { nameLocalStorage } from '@/store/reducers/survey'
 
 interface ResultScreenProps {
     surveyId: string
@@ -10,6 +16,10 @@ interface ResultScreenProps {
 
 export function ResultScreen({ surveyId }: ResultScreenProps) {
     const answers = useAppSelector((state) => state.survey.answers[surveyId])
+
+    useEffect(() => {
+        clearLocalStorage(nameLocalStorage)
+    }, [])
 
     if (answers && Object.entries(answers).length) {
         return (

@@ -2,23 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { AnswerData, SurveyState } from '@/dto/surveyStore.type'
 
+import { loadFromLocalStorage, saveToLocalStorage } from '@/helpers/localStorage'
 
-const loadFromLocalStorage = (key: string) => {
-    if (typeof window !== 'undefined') {
-        const data = localStorage.getItem(key)
-        return data ? JSON.parse(data) : null
-    }
-    return null
-}
+export const nameLocalStorage = 'survey_answers'
 
 const initialState: SurveyState = {
-    answers: loadFromLocalStorage('survey_answers') || {},
-}
-
-const saveToLocalStorage = (key: string, value: any) => {
-    if (typeof window !== 'undefined') {
-        localStorage.setItem(key, JSON.stringify(value))
-    }
+    answers: loadFromLocalStorage(nameLocalStorage) || {},
 }
 
 const surveySlice = createSlice({
@@ -33,23 +22,10 @@ const surveySlice = createSlice({
             }
             state.answers[surveyId][questionId] = answerData
 
-            saveToLocalStorage('survey_answers', state.answers)
-        },
-
-        resetSurvey: (state, action: PayloadAction<{ surveyId: string }>) => {
-            const { surveyId } = action.payload
-            delete state.answers[surveyId]
-
-            saveToLocalStorage('survey_answers', state.answers)
-        },
-
-        clearLocalStorage: () => {
-            if (typeof window !== 'undefined') {
-                localStorage.removeItem('survey_answers')
-            }
+            saveToLocalStorage(nameLocalStorage, state.answers)
         },
     },
 })
 
-export const { saveAnswer, resetSurvey, clearLocalStorage } = surveySlice.actions
+export const { saveAnswer } = surveySlice.actions
 export default surveySlice.reducer
