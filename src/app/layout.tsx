@@ -22,8 +22,10 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="en" className={openSans.variable}>
-            <Providers>{children}</Providers>
+        <html lang="en">
+            <body className={openSans.variable}>
+                <Providers>{children}</Providers>
+            </body>
         </html>
     )
 }

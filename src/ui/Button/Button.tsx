@@ -6,7 +6,7 @@ import classes from './styles/button.module.scss'
 
 interface ButtonProps {
     onClick?: ComponentProps<'button'>['onClick']
-    type: 'primary' | 'accent'
+    type: 'primary' | 'accent' | 'light'
     children: ReactNode
     btnType?: 'button' | 'submit' | 'reset'
     disabled?: boolean

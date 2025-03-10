@@ -4,8 +4,12 @@
     position: relative;
     display: flex;
     justify-content: center;
-    padding: 15px 0px;
+    padding: 19px 0px;
     margin-bottom: 20px;
+
+    @media screen and (max-width: $sizes-mobile) {
+        padding: 10px 0px;
+    }
 }
 
 .header-back {

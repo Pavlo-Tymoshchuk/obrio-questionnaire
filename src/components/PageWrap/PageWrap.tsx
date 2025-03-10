@@ -8,8 +8,8 @@ interface PageWrapProps {
 
 export function PageWrap({ children, className }: PageWrapProps) {
     return (
-        <body className={classNames('body', className)}>
+        <section className={classNames('body-section', className)}>
             <section className="container">{children}</section>
-        </body>
+        </section>
     )
 }

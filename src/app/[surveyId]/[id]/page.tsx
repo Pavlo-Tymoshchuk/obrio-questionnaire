@@ -35,9 +35,9 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
 
     return (
         <PageWrap className={question.screenType}>
-            <Header prevQuestionId={question.prevQuestionId} surveyId={surveyId} />
+            <Header prevQuestionId={question.prevQuestionId} surveyId={surveyId} isWhite={question.screenType === 'accept-next'} />
             <main className="main-wrapper">
-                <SurveyScreen question={question} surveyId={surveyId} />
+                <SurveyScreen question={question} surveyId={surveyId}  />
             </main>
         </PageWrap>
     )

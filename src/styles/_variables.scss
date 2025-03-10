@@ -1,12 +1,19 @@
 $color-text-400: #333333;
 $color-text-600: #000000;
-
 $color-text-100: #FAFAFA;
+$color-text-200: #FBFBFF;
+$color-text-accent: #6A3AA2;
 
 $color-bg-body: #FFF0F0;
+$color-bg-light: #FAFAFA;
 $color-bg-accent: linear-gradient(135deg, #141333, #202261, #543C97, #6939A1);
 $color-bg-primary: #EAEEF7;
 
 $color-shadow-100: 2px 2px 6px 0 rgba(84, 60, 151, 0.25);
+$color-shadow-200: 0px 4px 4px rgba(216, 214, 214, 0.25);
 
 $color-border-100: #E0E0E0;
+
+$mb-values: 20;
+
+$sizes-mobile: 767px;

@@ -1,12 +1,12 @@
 'use client'
 
-import { SurveyOption, SurveyQuestion } from '@/dto/surveyQuestion.type'
-
-import classes from './styles/choiceQuestion.module.scss'
+import { SurveyQuestion } from '@/dto/surveyQuestion.type'
 
 import { usePrepareTitle } from '@/hooks/usePrepareTitle'
+import { useHandleNextAnswer } from '@/hooks/useHandleNextAnswer'
 import { useEffect } from 'react'
 
+import { Button } from '@/ui/Button'
 
 interface AcceptChoiceQuestionNext {
     question: SurveyQuestion
@@ -15,16 +15,17 @@ interface AcceptChoiceQuestionNext {
 
 export function AcceptChoiceQuestionNext({ question, surveyId }: AcceptChoiceQuestionNext) {
     const prepareText = usePrepareTitle({ title: question.text, surveyId })
+    const handlerAnswer = useHandleNextAnswer({ prevQuestionId: question.prevQuestionId, surveyId, variansNext: question.variansNext })
 
-
-    useEffect(() => {
-
-    }, [])
+    useEffect(() => {}, [])
 
     return (
         <>
-            <h1 className="h1-style">{prepareText}</h1>
-
+            <h1 className="h1-style mb-20">{prepareText}</h1>
+            <p className="sub-text">{question.subText}</p>
+            <Button type="light" onClick={handlerAnswer}>
+                Next
+            </Button>
         </>
     )
 }

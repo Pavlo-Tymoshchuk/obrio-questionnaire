@@ -3,7 +3,7 @@
 import { useAppSelector } from '@/store/Store'
 import { SurveyOption } from '@/dto/surveyQuestion.type'
 
-import { useHandleAnswer } from './hooks/useHandleAnswer'
+import { useHandleAnswer } from '../../hooks/useHandleAnswer'
 
 import { isWasAnswer } from './helpers/functions'
 

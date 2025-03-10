@@ -43,3 +43,13 @@
     background: $color-bg-accent;
     box-shadow: $color-shadow-100;
 }
+
+.button-light {
+    font-size: 18px;
+    line-height: 21px;
+    color: $color-text-accent;
+    padding: 14px 15px 15px 15px;
+    border: none;
+    box-shadow:  $color-shadow-200;
+    background-color: $color-bg-light;
+}
