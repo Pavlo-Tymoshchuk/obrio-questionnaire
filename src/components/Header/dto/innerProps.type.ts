@@ -1,5 +1,5 @@
 export interface InnerProps {
     prevQuestionId: string | null
-    surveyId: string
+    surveyId: string | null
     isWhite?: boolean
 }
