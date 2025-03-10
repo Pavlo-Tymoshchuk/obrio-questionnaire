@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { AnswerData, SurveyState } from '@/dto/surveyStore.type'
 
-import { loadFromLocalStorage, saveToLocalStorage } from '@/helpers/localStorage'
+import { loadFromLocalStorage, saveToLocalStorage } from '@/utils/localStorage'
 
 export const nameLocalStorage = 'survey_answers'
 

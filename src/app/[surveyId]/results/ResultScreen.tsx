@@ -6,7 +6,7 @@ import { useAppSelector } from '@/store/Store'
 
 import classes from './styles/results.module.scss'
 
-import { clearLocalStorage } from '@/helpers/localStorage'
+import { clearLocalStorage } from '@/utils/localStorage'
 
 import { nameLocalStorage } from '@/store/reducers/survey'
 
